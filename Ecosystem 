@@ -1,1 +1,589 @@
-Awerness
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoSmart Nepal | A Greener Future</title>
+
+<style>
+:root {
+  --green: #087a43;
+  --dark: #075c35;
+  --light: #e9f7ed;
+  --bg: #f5faf5;
+  --card: white;
+  --text: #20352a;
+  --muted: #607568;
+}
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: .3s;
+}
+body.dark {
+  --bg: #10251b;
+  --card: #1b3829;
+  --text: #f0fff4;
+  --muted: #c0d4c6;
+  --light: #244734;
+}
+header {
+  background: linear-gradient(135deg,#087a43,#0ca45b);
+  color: white;
+  padding: 38px 15px;
+  text-align: center;
+}
+header h1 {
+  font-size: 38px;
+  margin: 5px;
+}
+header p {
+  font-size: 17px;
+}
+nav {
+  background: var(--dark);
+  padding: 13px 8px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+nav a, nav button {
+  color: white;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  padding: 9px;
+  cursor: pointer;
+}
+nav a:hover, nav button:hover {
+  background: #138a50;
+  border-radius: 6px;
+}
+.hero {
+  padding: 65px 20px;
+  text-align: center;
+  background: linear-gradient(135deg,#d8f4df,#f4fff5);
+}
+.dark .hero {
+  background: linear-gradient(135deg,#1b4930,#10251b);
+}
+.hero h2 {
+  color: var(--green);
+  font-size: 32px;
+}
+.hero p {
+  max-width: 650px;
+  margin: 15px auto;
+  line-height: 1.7;
+}
+.btn {
+  display: inline-block;
+  background: var(--green);
+  color: white;
+  border: none;
+  border-radius: 7px;
+  padding: 12px 22px;
+  margin: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+.btn:hover {
+  background: var(--dark);
+}
+section {
+  padding: 48px 18px;
+  max-width: 1100px;
+  margin: auto;
+}
+.section-title {
+  text-align: center;
+  color: var(--green);
+  font-size: 29px;
+  margin-bottom: 12px;
+}
+.subtitle {
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 30px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 20px;
+}
+.card {
+  background: var(--card);
+  padding: 23px;
+  border-radius: 12px;
+  box-shadow: 0 3px 13px rgba(0,0,0,.07);
+  border-bottom: 4px solid #16a05b;
+  transition: transform .2s;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.card h3 {
+  color: var(--green);
+}
+.card p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+.emoji {
+  font-size: 36px;
+}
+.about-box {
+  background: var(--light);
+  padding: 28px;
+  border-radius: 12px;
+  line-height: 1.8;
+}
+.fact {
+  background: var(--light);
+  border-left: 5px solid var(--green);
+  padding: 17px;
+  margin: 12px 0;
+  border-radius: 6px;
+  line-height: 1.6;
+}
+.quiz-box {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 3px 13px rgba(0,0,0,.07);
+}
+.quiz-box select, input, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #aabdaf;
+  border-radius: 6px;
+  margin: 9px 0;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+}
+#quizResult, #formResult {
+  font-weight: bold;
+  margin-top: 15px;
+  color: var(--green);
+}
+footer {
+  background: #075c35;
+  color: white;
+  text-align: center;
+  padding: 28px 15px;
+  line-height: 1.8;
+}
+.top {
+  position: fixed;
+  bottom: 18px;
+  right: 15px;
+  background: var(--green);
+  color: white;
+  padding: 12px 15px;
+  border-radius: 50%;
+  text-decoration: none;
+}
+@media(max-width:600px) {
+  header h1 {font-size:29px;}
+  .hero h2 {font-size:25px;}
+  nav {gap:2px;}
+  nav a, nav button {font-size:12px;padding:8px 5px;}
+  section {padding:35px 15px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🌱 EcoSmart Nepal</h1>
+  <p>Think Green. Live Green. Keep Nepal Clean.</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#problems">Problems</a>
+  <a href="#solutions">Solutions</a>
+  <a href="#recycling">Recycling</a>
+  <a href="#facts">Facts</a>
+  <a href="#quiz">Quiz</a>
+  <a href="#contact">Contact</a>
+  <button onclick="toggleTheme()">🌙 Theme</button>
+</nav>
+
+<div class="hero" id="home">
+  <h2>Welcome to EcoSmart Nepal! 🌍</h2>
+  <p>
+    Our environment is our greatest treasure.
+    Let's work together to reduce pollution,
+    protect forests, manage waste and create
+    a cleaner and greener Nepal.
+  </p>
+  <a href="#about" class="btn">Explore Our Mission</a>
+  <a href="#solutions" class="btn">Save Our Earth</a>
+</div>
+
+<section id="about">
+  <h2 class="section-title">🌿 About EcoSmart Nepal</h2>
+  <p class="subtitle">Discover our mission and vision.</p>
+  <div class="about-box">
+    <h3>Our Mission</h3>
+    <p>
+      EcoSmart Nepal is an environmental awareness
+      project designed to encourage people to protect
+      nature, reduce pollution and manage waste
+      responsibly.
+    </p>
+    <h3>Our Vision</h3>
+    <p>
+      We dream of a Nepal where rivers are clean,
+      forests are protected, cities are less polluted
+      and every person understands their responsibility
+      towards the environment.
+    </p>
+    <h3>Our Message</h3>
+    <p>
+      Small actions can create big changes.
+      Every individual can contribute to a healthier
+      planet.
+    </p>
+  </div>
+</section>
+
+<section id="problems">
+  <h2 class="section-title">⚠️ Environmental Problems</h2>
+  <p class="subtitle">Some important challenges facing our environment.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="emoji">🏭</div>
+      <h3>Air Pollution</h3>
+      <p>Smoke from vehicles, industries and burning waste can reduce air quality and affect human health.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">🌊</div>
+      <h3>Water Pollution</h3>
+      <p>Wastewater, plastics and other pollutants can contaminate rivers, lakes and other water sources.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">🌳</div>
+      <h3>Deforestation</h3>
+      <p>Loss of forests threatens wildlife, biodiversity and the natural balance of ecosystems.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">🗑️</div>
+      <h3>Plastic Pollution</h3>
+      <p>Improper disposal of plastic can harm wildlife and pollute land and water.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">🌡️</div>
+      <h3>Climate Change</h3>
+      <p>Global warming is changing weather patterns and increasing environmental risks.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">🐾</div>
+      <h3>Wildlife Loss</h3>
+      <p>Habitat destruction and pollution threaten many plant and animal species.</p>
+    </div>
+  </div>
+</section>
+
+<section id="solutions">
+  <h2 class="section-title">💚 Our Solutions</h2>
+  <p class="subtitle">Simple actions for a better tomorrow.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="emoji">🌱</div>
+      <h3>Plant Trees</h3>
+      <p>Plant and protect trees to support biodiversity and improve the environment.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">🚲</div>
+      <h3>Use Cleaner Transport</h3>
+      <p>Walk, cycle or use public transport when practical to reduce vehicle emissions.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">💧</div>
+      <h3>Save Water</h3>
+      <p>Turn off taps when not needed and avoid wasting clean water.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">♻️</div>
+      <h3>Reduce Waste</h3>
+      <p>Reuse useful items and recycle suitable materials instead of throwing everything away.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">🧹</div>
+      <h3>Keep Places Clean</h3>
+      <p>Use waste bins and take part in responsible community cleaning activities.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">💡</div>
+      <h3>Save Energy</h3>
+      <p>Switch off lights and appliances when they are not being used.</p>
+    </div>
+  </div>
+</section>
+
+<section id="recycling">
+  <h2 class="section-title">♻️ Recycling Guide</h2>
+  <p class="subtitle">Learn how to manage different types of waste.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="emoji">📄</div>
+      <h3>Paper</h3>
+      <p>Keep clean and dry paper separate for recycling.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">🥤</div>
+      <h3>Plastic</h3>
+      <p>Separate recyclable plastic and follow local collection rules.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">🍃</div>
+      <h3>Organic Waste</h3>
+      <p>Food scraps and garden waste can often be composted.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">🥫</div>
+      <h3>Metal</h3>
+      <p>Clean metal cans and suitable scrap can be collected for recycling.</p>
+    </div>
+  </div>
+
+  <div class="about-box" style="margin-top:22px;">
+    <h3>Remember the 3Rs!</h3>
+    <p><b>Reduce:</b> Use fewer unnecessary resources.</p>
+    <p><b>Reuse:</b> Use items again instead of discarding them.</p>
+    <p><b>Recycle:</b> Process suitable waste into useful materials.</p>
+  </div>
+</section>
+
+<section id="facts">
+  <h2 class="section-title">🌍 Environmental Facts</h2>
+  <p class="subtitle">Learn something new about our planet.</p>
+
+  <div class="fact">🌳 Forests provide habitats for countless species and help store carbon.</div>
+  <div class="fact">💧 Freshwater is essential for people, plants and animals.</div>
+  <div class="fact">🐝 Bees and other pollinators help many plants produce fruits and seeds.</div>
+  <div class="fact">♻️ Recycling can reduce the need for some new raw materials.</div>
+  <div class="fact">🏔️ Nepal is home to eight of the world's fourteen mountains above 8,000 metres.</div>
+  <div class="fact">🌱 Growing native plants can help support local wildlife.</div>
+</section>
+
+<section id="quiz">
+  <h2 class="section-title">🧠 Waste Sorting Quiz</h2>
+  <p class="subtitle">Test your environmental knowledge!</p>
+
+  <div class="quiz-box">
+    <h3 id="question">Question 1: Where should a banana peel go?</h3>
+
+    <select id="answer">
+      <option value="">Choose your answer</option>
+      <option value="plastic">Plastic waste</option>
+      <option value="organic">Organic waste</option>
+      <option value="metal">Metal waste</option>
+      <option value="paper">Paper waste</option>
+    </select>
+
+    <button class="btn" onclick="checkAnswer()">Submit Answer</button>
+    <button class="btn" onclick="nextQuestion()">Next Question</button>
+
+    <p id="quizResult"></p>
+    <p id="score">Score: 0 / 5</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">📩 Contact & Feedback</h2>
+  <p class="subtitle">Share your thoughts about protecting the environment.</p>
+
+  <div class="quiz-box">
+    <form id="feedbackForm">
+      <label>Your Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label>Your Email (optional)</label>
+      <input type="email" id="email" placeholder="Enter your email">
+
+      <label>Your Message</label>
+      <textarea id="message" rows="5" placeholder="Write your feedback..." required></textarea>
+
+      <button class="btn" type="submit">Send Feedback</button>
+    </form>
+    <p id="formResult"></p>
+    <p style="color:var(--muted);font-size:12px;">
+      Demo form: feedback is displayed on this page and is not sent to a server.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <h2>🌱 EcoSmart Nepal</h2>
+  <p>Think Green. Live Green. Keep Nepal Clean.</p>
+  <p>Working together for a sustainable future.</p>
+  <p>© 2026 EcoSmart Nepal | Student Innovation Project</p>
+</footer>
+
+<a class="top" href="#home">↑</a>
+
+<script>
+function toggleTheme() {
+  document.body.classList.toggle("dark");
+}
+
+const questions = [
+  {
+    q: "Where should a banana peel go?",
+    a: "organic",
+    options: ["Plastic waste","Organic waste","Metal waste","Paper waste"]
+  },
+  {
+    q: "Which material is commonly recyclable?",
+    a: "paper",
+    options: ["Used paper","Food leftovers","Dirty tissues","Wet food waste"]
+  },
+  {
+    q: "What is the best way to reduce plastic waste?",
+    a: "reuse",
+    options: ["Burn plastic","Throw it in rivers","Reuse a suitable bag","Litter outdoors"]
+  },
+  {
+    q: "What can be made from suitable organic waste?",
+    a: "compost",
+    options: ["Plastic","Compost","Metal","Glass"]
+  },
+  {
+    q: "What are the 3Rs?",
+    a: "3rs",
+    options: ["Run, Read, Rest","Reduce, Reuse, Recycle","Remove, Return, Repair","Reuse, Replace, Remove"]
+  }
+];
+
+let current = 0;
+let score = 0;
+let answered = false;
+
+const correct = ["organic","paper","reuse","compost","3rs"];
+
+const options = [
+  ["Plastic waste","Organic waste","Metal waste","Paper waste"],
+  ["Used paper","Food leftovers","Dirty tissues","Wet food waste"],
+  ["Burn plastic","Throw it in rivers","Reuse a suitable bag","Litter outdoors"],
+  ["Plastic","Compost","Metal","Glass"],
+  ["Run, Read, Rest","Reduce, Reuse, Recycle","Remove, Return, Repair","Reuse, Replace, Remove"]
+];
+
+function showQuestion() {
+  document.getElementById("question").textContent =
+    "Question " + (current + 1) + ": " + questions[current].q;
+
+  document.getElementById("answer").innerHTML =
+    '<option value="">Choose your answer</option>';
+
+  options[current].forEach((option, i) => {
+    let opt = document.createElement("option");
+    opt.value = i;
+    opt.textContent = option;
+    document.getElementById("answer").appendChild(opt);
+  });
+
+  document.getElementById("quizResult").textContent = "";
+  answered = false;
+}
+
+function checkAnswer() {
+  if (answered) return;
+
+  let choice = document.getElementById("answer").value;
+
+  if (choice === "") {
+    document.getElementById("quizResult").textContent =
+      "Please select an answer!";
+    return;
+  }
+
+  answered = true;
+
+  if (options[current][Number(choice)] ===
+      questions[current].options[1] && current === 0) {
+    // The first question is checked below using its answer key.
+  }
+
+  const selectedAnswers = [
+    "Organic waste",
+    "Used paper",
+    "Reuse a suitable bag",
+    "Compost",
+    "Reduce, Reuse, Recycle"
+  ];
+
+  if (options[current][Number(choice)] === selectedAnswers[current]) {
+    score++;
+    document.getElementById("quizResult").textContent =
+      "Correct! Excellent work! 🌟";
+  } else {
+    document.getElementById("quizResult").textContent =
+      "Not quite! The correct answer is " + selectedAnswers[current] + ".";
+  }
+
+  document.getElementById("score").textContent =
+    "Score: " + score + " / 5";
+}
+
+function nextQuestion() {
+  if (!answered) {
+    document.getElementById("quizResult").textContent =
+      "Answer this question first!";
+    return;
+  }
+
+  if (current < 4) {
+    current++;
+    showQuestion();
+  } else {
+    document.getElementById("question").textContent =
+      "Quiz completed! 🎉";
+    document.getElementById("answer").style.display = "none";
+    document.getElementById("quizResult").textContent =
+      "Your final score is " + score + " out of 5. Great job!";
+  }
+}
+
+document.getElementById("feedbackForm").addEventListener("submit",
+function(event) {
+  event.preventDefault();
+  let name = document.getElementById("name").value.trim();
+  let message = document.getElementById("message").value.trim();
+
+  if (!name || !message) return;
+
+  document.getElementById("formResult").textContent =
+    "Thank you, " + name + "! Your feedback has been recorded in this demo.";
+  this.reset();
+});
+
+showQuestion();
+</script>
+
+</body>
+</html>
