@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoSmart Nepal</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f8f0;
+    color: #222;
+    line-height: 1.6;
+    transition: 0.3s;
+}
+
+header {
+    background: #087b45;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 27px;
+}
+
+header p {
+    font-size: 13px;
+}
+
+nav {
+    background: #075c36;
+    padding: 12px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 7px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #b8ffca;
+}
+
+section {
+    padding: 45px 20px;
+    text-align: center;
+    max-width: 900px;
+    margin: auto;
+}
+
+h2 {
+    color: #087b45;
+    margin-bottom: 15px;
+}
+
+button {
+    background: #087b45;
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 8px;
+}
+
+button:hover {
+    background: #055b32;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    margin: 15px auto;
+    border-radius: 10px;
+    max-width: 600px;
+    box-shadow: 0 2px 8px #0001;
+}
+
+input, textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+footer {
+    background: #075c36;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.dark {
+    background: #17231c;
+    color: #eee;
+}
+
+.dark section h2 {
+    color: #65d99a;
+}
+
+.dark .card {
+    background: #26382d;
+    color: white;
+}
+
+.dark input, .dark textarea {
+    background: #26382d;
+    color: white;
+    border-color: #777;
+}
+
+.dark nav {
+    background: #102c1c;
+}
+
+#result {
+    font-weight: bold;
+    margin: 12px;
+}
+
+@media(max-width:600px) {
+    nav a {
+        display: inline-block;
+        margin: 5px;
+        font-size: 12px;
+    }
+
+    section {
+        padding: 35px 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌱 EcoSmart Nepal</h1>
+    <p>Building a Greener Nepal</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#problems">Problems</a>
+    <a href="#solutions">Solutions</a>
+    <a href="#recycling">Recycling</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+    <h2>Welcome to EcoSmart Nepal!</h2>
+    <p>Let's protect our environment and create a cleaner, greener future.</p>
+    <button onclick="joinUs()">Join Us</button>
+    <br>
+    <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+</section>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p>
+        EcoSmart Nepal is an environmental awareness project
+        that encourages people to protect nature and keep
+        Nepal clean and green.
+    </p>
+</section>
+
+<section id="problems">
+    <h2>Environmental Problems</h2>
+
+    <div class="card">
+        <h3>🌫️ Air Pollution</h3>
+        <p>Smoke from vehicles and factories makes the air unhealthy.</p>
+    </div>
+
+    <div class="card">
+        <h3>🗑️ Plastic Pollution</h3>
+        <p>Plastic waste harms animals, rivers and the environment.</p>
+    </div>
+
+    <div class="card">
+        <h3>🌳 Deforestation</h3>
+        <p>Cutting down trees destroys habitats and affects nature.</p>
+    </div>
+
+    <div class="card">
+        <h3>💧 Water Pollution</h3>
+        <p>Waste and chemicals can make rivers and lakes unsafe.</p>
+    </div>
+</section>
+
+<section id="solutions">
+    <h2>Our Solutions</h2>
+
+    <div class="card">
+        <h3>🌱 Plant Trees</h3>
+        <p>Plant more trees and protect forests.</p>
+    </div>
+
+    <div class="card">
+        <h3>💧 Save Water</h3>
+        <p>Use water carefully and avoid wasting it.</p>
+    </div>
+
+    <div class="card">
+        <h3>♻️ Reduce Plastic</h3>
+        <p>Use reusable bags and bottles instead of single-use plastic.</p>
+    </div>
+</section>
+
+<section id="recycling">
+    <h2>Recycling</h2>
+    <p>
+        Reuse materials, separate waste and recycle paper,
+        plastic and metal.
+    </p>
+
+    <div class="card">
+        <h3>♻️ Reduce</h3>
+        <p>Use fewer unnecessary materials.</p>
+    </div>
+
+    <div class="card">
+        <h3>🔄 Reuse</h3>
+        <p>Use items again instead of throwing them away.</p>
+    </div>
+
+    <div class="card">
+        <h3>🌍 Recycle</h3>
+        <p>Turn recyclable waste into useful materials.</p>
+    </div>
+</section>
+
+<section id="quiz">
+    <h2>🧠 Environmental Quiz</h2>
+    <p>Test your environmental knowledge!</p>
+
+    <div class="card">
+        <h3>1. Which of these helps protect the environment?</h3>
+
+        <button onclick="checkAnswer('wrong')">Cutting trees</button>
+        <button onclick="checkAnswer('right')">Planting trees</button>
+        <button onclick="checkAnswer('wrong')">Throwing plastic</button>
+
+        <p id="result"></p>
+    </div>
+
+    <div class="card">
+        <h3>2. What does recycling mean?</h3>
+
+        <button onclick="checkSecond('wrong')">Burning waste</button>
+        <button onclick="checkSecond('right')">Processing used materials</button>
+        <button onclick="checkSecond('wrong')">Throwing everything away</button>
+
+        <p id="result2"></p>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Let's work together for a greener Nepal!</p>
+
+    <div class="card">
+        <h3>📝 Demo Feedback Form</h3>
+
+        <form id="feedbackForm">
+            <input
+                type="text"
+                id="name"
+                placeholder="Your Name"
+                required
+            >
+
+            <textarea
+                id="message"
+                rows="4"
+                placeholder="Write your feedback..."
+                required
+            ></textarea>
+
+            <button type="submit">Submit Feedback</button>
+        </form>
+
+        <p id="feedbackResult"></p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 EcoSmart Nepal | Save Nature 🌍</p>
+</footer>
+
+<script>
+
+// Join Us Button
+function joinUs() {
+    alert("Thank you for joining EcoSmart Nepal! 🌱");
+}
+
+// Dark Mode
+function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+}
+
+// First Quiz Question
+function checkAnswer(answer) {
+    const result = document.getElementById("result");
+
+    if (answer === "right") {
+        result.innerHTML = "✅ Correct! Great job!";
+    } else {
+        result.innerHTML = "❌ Try again!";
+    }
+}
+
+// Second Quiz Question
+function checkSecond(answer) {
+    const result = document.getElementById("result2");
+
+    if (answer === "right") {
+        result.innerHTML = "✅ Correct! Well done!";
+    } else {
+        result.innerHTML = "❌ Try again!";
+    }
+}
+
+// Demo Feedback Form
+document.getElementById("feedbackForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+
+    document.getElementById("feedbackResult").innerHTML =
+        "Thank you, " + name +
+        "! Your feedback has been recorded in this demo. 🌱";
+
+    this.reset();
+});
+
+</script>
+
+</body>
+</html>
