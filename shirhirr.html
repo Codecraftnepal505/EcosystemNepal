@@ -1,0 +1,748 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartAgro Nepal | Smart Farming Future</title>
+
+<style>
+:root{
+  --bg:#07110c;
+  --surface:#101e15;
+  --surface2:#192b1e;
+  --text:#eaf5ec;
+  --muted:#a7b9aa;
+  --green:#35d477;
+  --green2:#83e9a9;
+  --border:#294532;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:#0c1910;
+  border-bottom:1px solid var(--border);
+  padding:15px 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:15px;
+}
+
+.logo{
+  color:var(--green);
+  font-size:22px;
+  font-weight:bold;
+}
+
+nav{display:flex;gap:17px;flex-wrap:wrap;}
+
+nav a{
+  color:var(--text);
+  text-decoration:none;
+  font-size:14px;
+}
+
+nav a:hover{color:var(--green);}
+
+button{
+  cursor:pointer;
+  border:0;
+  border-radius:8px;
+  padding:12px 18px;
+  font-weight:bold;
+}
+
+.hero{
+  min-height:520px;
+  padding:80px 8%;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(circle at 20% 20%,#35d47733,transparent 35%),
+    linear-gradient(135deg,#06160c,#123b22,#07110c);
+}
+
+.tag{
+  color:var(--green2);
+  border:1px solid #35d47766;
+  padding:7px 16px;
+  border-radius:30px;
+  margin-bottom:22px;
+  font-size:13px;
+}
+
+.hero h1{
+  font-size:clamp(38px,7vw,65px);
+  line-height:1.15;
+  max-width:850px;
+  margin-bottom:20px;
+}
+
+.hero h1 span{color:var(--green);}
+
+.hero p{
+  max-width:680px;
+  color:#c1d4c5;
+  margin-bottom:28px;
+}
+
+.primary{
+  background:var(--green);
+  color:#07110c;
+  text-decoration:none;
+  display:inline-block;
+  padding:13px 23px;
+  border-radius:8px;
+  font-weight:bold;
+}
+
+.primary:hover{background:var(--green2);}
+
+section{
+  padding:70px 8%;
+  scroll-margin-top:85px;
+}
+
+.heading{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.heading small{
+  color:var(--green);
+  letter-spacing:2px;
+  font-weight:bold;
+}
+
+.heading h2{
+  font-size:clamp(27px,4vw,38px);
+  margin:8px 0;
+}
+
+.heading p{
+  color:var(--muted);
+  max-width:650px;
+  margin:auto;
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  align-items:center;
+}
+
+.about-visual{
+  min-height:280px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#164a28,#23834a);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:90px;
+}
+
+.about-text h3{
+  color:var(--green);
+  font-size:25px;
+  margin-bottom:12px;
+}
+
+.about-text p{color:var(--muted);margin-bottom:12px;}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  padding:24px;
+  border-radius:13px;
+  transition:transform .2s;
+}
+
+.card:hover{transform:translateY(-5px);}
+
+.card-icon{font-size:38px;margin-bottom:10px;}
+
+.card h3{color:var(--green);margin-bottom:9px;}
+
+.card p{color:var(--muted);font-size:14px;}
+
+.crop{
+  background:var(--surface2);
+}
+
+.crop .card{background:var(--bg);}
+
+.benefit{
+  display:flex;
+  gap:15px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  padding:17px;
+  border-radius:10px;
+  margin-bottom:13px;
+}
+
+.benefit span{font-size:28px;}
+
+.benefit p{color:var(--muted);font-size:14px;}
+
+.quiz-box,.feedback-box{
+  max-width:650px;
+  margin:auto;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:25px;
+}
+
+.progress{
+  height:7px;
+  background:var(--surface2);
+  border-radius:10px;
+  margin:15px 0 23px;
+  overflow:hidden;
+}
+
+.progress-bar{
+  height:100%;
+  width:0;
+  background:var(--green);
+  transition:width .3s;
+}
+
+.option{
+  display:block;
+  width:100%;
+  text-align:left;
+  padding:13px;
+  margin:10px 0;
+  background:var(--surface2);
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:8px;
+}
+
+.option.selected{border:2px solid var(--green);}
+
+.option:disabled{cursor:default;}
+
+.quiz-actions{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:20px;
+  gap:10px;
+}
+
+.result{
+  color:var(--green);
+  font-weight:bold;
+  margin-top:15px;
+}
+
+label{font-weight:bold;font-size:14px;}
+
+input,textarea{
+  width:100%;
+  padding:13px;
+  margin:8px 0 17px;
+  background:var(--bg);
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:8px;
+  font:inherit;
+}
+
+textarea{min-height:110px;resize:vertical;}
+
+footer{
+  background:#050d08;
+  padding:32px 7%;
+  text-align:center;
+  color:var(--muted);
+}
+
+footer strong{
+  color:var(--green);
+  font-size:22px;
+}
+
+footer p{font-size:13px;margin-top:7px;}
+
+@media(max-width:750px){
+  header{justify-content:center;}
+  nav{justify-content:center;gap:12px;}
+  .about-grid{grid-template-columns:1fr;}
+  section{padding:55px 6%;}
+}
+
+@media(max-width:430px){
+  nav a{font-size:12px;}
+  .quiz-box,.feedback-box{padding:18px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="#home" class="logo">🌱 SmartAgro Nepal</a>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#technology">Technology</a>
+    <a href="#crops">Crops</a>
+    <a href="#benefits">Benefits</a>
+    <a href="#quiz">Quiz</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="tag">🌾 THE FUTURE OF AGRICULTURE</div>
+
+  <h1>Smart Farming for a <span>Better Nepal</span></h1>
+
+  <p>
+    Discover how modern technology, innovation and sustainable
+    farming practices can help farmers improve agriculture
+    and build a better future for Nepal.
+  </p>
+
+  <a href="#about" class="primary">Explore SmartAgro →</a>
+</section>
+
+<section id="about">
+  <div class="heading">
+    <small>INTRODUCTION</small>
+    <h2>About SmartAgro Nepal</h2>
+    <p>Connecting agriculture with innovation and technology.</p>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-visual">🚜🌱🌾</div>
+
+    <div class="about-text">
+      <h3>Growing a Smarter Future</h3>
+
+      <p>
+        Agriculture plays an important role in Nepal's economy
+        and daily life. Many families depend on farming for
+        food, employment and income.
+      </p>
+
+      <p>
+        SmartAgro Nepal introduces modern farming technologies
+        and sustainable practices that can help improve
+        agricultural productivity.
+      </p>
+
+      <p>
+        Our aim is to spread awareness about smart farming
+        and encourage innovation in Nepalese agriculture.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="technology">
+  <div class="heading">
+    <small>MODERN INNOVATION</small>
+    <h2>Smart Farming Technologies</h2>
+    <p>Technology can help farmers make informed decisions and manage resources.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">💧</div>
+      <h3>Smart Irrigation</h3>
+      <p>
+        Irrigation systems using sensors can help farmers
+        supply water according to soil moisture needs.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🚁</div>
+      <h3>Agricultural Drones</h3>
+      <p>
+        Drones can help observe large fields and monitor
+        crop conditions from above.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📱</div>
+      <h3>Mobile Agriculture Apps</h3>
+      <p>
+        Mobile applications can provide weather information,
+        farming guidance and market updates.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🌡️</div>
+      <h3>Smart Sensors</h3>
+      <p>
+        Sensors can measure soil moisture and temperature
+        to support better farming decisions.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🛰️</div>
+      <h3>Satellite Monitoring</h3>
+      <p>
+        Satellite images can help monitor land, vegetation
+        and changes in crop conditions.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🤖</div>
+      <h3>Artificial Intelligence</h3>
+      <p>
+        AI tools can help analyze agricultural information
+        and support crop monitoring.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="crop" id="crops">
+  <div class="heading">
+    <small>AGRICULTURE IN NEPAL</small>
+    <h2>Important Crops of Nepal</h2>
+    <p>Nepal's different climates and landscapes support a variety of crops.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🌾</div>
+      <h3>Rice</h3>
+      <p>
+        Rice is one of Nepal's major food crops and is widely
+        cultivated in suitable lowland areas.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🌽</div>
+      <h3>Maize</h3>
+      <p>
+        Maize is an important crop used for food, animal feed
+        and other agricultural purposes.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🥔</div>
+      <h3>Potatoes</h3>
+      <p>
+        Potatoes are grown in different regions of Nepal
+        and are an important food crop.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🍎</div>
+      <h3>Fruits</h3>
+      <p>
+        Apples, oranges, mangoes and other fruits are
+        cultivated in different climatic regions.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🥬</div>
+      <h3>Vegetables</h3>
+      <p>
+        Vegetables such as cauliflower, cabbage, tomatoes
+        and spinach are grown across Nepal.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🌻</div>
+      <h3>Oilseeds</h3>
+      <p>
+        Mustard and other oilseed crops provide materials
+        for cooking oil and agricultural products.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="benefits">
+  <div class="heading">
+    <small>WHY SMART FARMING?</small>
+    <h2>Benefits of Smart Agriculture</h2>
+    <p>Modern farming approaches can support farmers and the environment.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">📈</div>
+      <h3>Better Productivity</h3>
+      <p>Technology can help farmers monitor crops and improve farming decisions.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">💦</div>
+      <h3>Water Conservation</h3>
+      <p>Smart irrigation can help reduce unnecessary water use.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🌍</div>
+      <h3>Environmental Care</h3>
+      <p>Efficient resource management can support more sustainable farming.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">💰</div>
+      <h3>Cost Management</h3>
+      <p>Better planning can help farmers manage resources and expenses.</p>
+    </div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="heading">
+    <small>TEST YOUR KNOWLEDGE</small>
+    <h2>Smart Farming Quiz</h2>
+    <p>Answer five questions about agriculture and technology.</p>
+  </div>
+
+  <div class="quiz-box">
+    <p id="questionNumber">Question 1 of 5</p>
+
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <h3 id="question"></h3>
+    <div id="options"></div>
+
+    <div class="quiz-actions">
+      <span id="scoreText">Score: 0</span>
+      <button class="primary" id="nextButton" onclick="nextQuestion()">
+        Next →
+      </button>
+    </div>
+
+    <p class="result" id="quizResult"></p>
+  </div>
+</section>
+
+<section id="feedback">
+  <div class="heading">
+    <small>GET IN TOUCH</small>
+    <h2>Share Your Feedback</h2>
+    <p>We would love to hear your thoughts about smart agriculture.</p>
+  </div>
+
+  <div class="feedback-box">
+    <form id="feedbackForm">
+      <label for="visitorName">Your Name</label>
+      <input id="visitorName" type="text" placeholder="Enter your name" required>
+
+      <label for="visitorMessage">Your Message</label>
+      <textarea id="visitorMessage" placeholder="Write your feedback..." required></textarea>
+
+      <button class="primary" type="submit">Submit Feedback →</button>
+    </form>
+
+    <p class="result" id="formResult"></p>
+
+    <p style="font-size:12px;color:var(--muted);margin-top:12px;">
+      Demonstration form only. Messages are not sent or permanently stored.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <strong>🌱 SmartAgro Nepal</strong>
+  <p>Smart Farming for a Better Nepal.</p>
+  <p>Innovation • Agriculture • Sustainability</p>
+  <p>Made by Shishir Thapa</p>
+  <p>© 2026 SmartAgro Nepal</p>
+</footer>
+
+<script>
+/* QUIZ QUESTIONS */
+
+const questions = [
+  {
+    question:"Which technology can help measure soil moisture?",
+    options:["Smart sensors","Television","Radio","Printer"],
+    answer:0
+  },
+  {
+    question:"Which crop is a major food crop in Nepal?",
+    options:["Coffee only","Rice","Cocoa","Olives"],
+    answer:1
+  },
+  {
+    question:"What can agricultural drones help farmers do?",
+    options:[
+      "Monitor fields",
+      "Make rainfall",
+      "Create soil",
+      "Replace all farming"
+    ],
+    answer:0
+  },
+  {
+    question:"What is one benefit of smart irrigation?",
+    options:[
+      "Wasting more water",
+      "Reducing unnecessary water use",
+      "Stopping crop growth",
+      "Increasing pollution"
+    ],
+    answer:1
+  },
+  {
+    question:"What does sustainable agriculture aim to do?",
+    options:[
+      "Damage the environment",
+      "Waste resources",
+      "Support farming while caring for resources",
+      "Stop all crop production"
+    ],
+    answer:2
+  }
+];
+
+let current=0;
+let score=0;
+let selected=null;
+let finished=false;
+
+function showQuestion(){
+  const q=questions[current];
+
+  document.getElementById("questionNumber").textContent=
+    "Question "+(current+1)+" of "+questions.length;
+
+  document.getElementById("question").textContent=q.question;
+
+  document.getElementById("progressBar").style.width=
+    ((current+1)/questions.length*100)+"%";
+
+  document.getElementById("scoreText").textContent="Score: "+score;
+  document.getElementById("quizResult").textContent="";
+  document.getElementById("nextButton").textContent="Next →";
+
+  selected=null;
+
+  const options=document.getElementById("options");
+  options.innerHTML="";
+
+  q.options.forEach((option,index)=>{
+    const button=document.createElement("button");
+    button.className="option";
+    button.textContent=option;
+
+    button.onclick=()=>{
+      if(selected!==null || finished)return;
+
+      selected=index;
+
+      document.querySelectorAll(".option").forEach(b=>{
+        b.classList.remove("selected");
+      });
+
+      button.classList.add("selected");
+    };
+
+    options.appendChild(button);
+  });
+}
+
+function nextQuestion(){
+  if(finished){
+    current=0;
+    score=0;
+    finished=false;
+    showQuestion();
+    return;
+  }
+
+  if(selected===null){
+    document.getElementById("quizResult").textContent=
+      "Please select an answer first.";
+    return;
+  }
+
+  if(selected===questions[current].answer)score++;
+
+  current++;
+
+  if(current<questions.length){
+    showQuestion();
+  }else{
+    finished=true;
+
+    document.getElementById("question").textContent="Quiz Completed! 🎉";
+    document.getElementById("options").innerHTML="";
+    document.getElementById("questionNumber").textContent="Final Result";
+    document.getElementById("scoreText").textContent=
+      "Score: "+score+"/"+questions.length;
+
+    document.getElementById("quizResult").textContent=
+      score===questions.length
+      ?"Excellent! All answers correct!"
+      :"Well done! You scored "+score+" out of "+questions.length+".";
+
+    document.getElementById("nextButton").textContent="Try Again ↻";
+  }
+}
+
+showQuestion();
+
+/* FEEDBACK DEMO */
+
+document.getElementById("feedbackForm").addEventListener("submit",function(event){
+  event.preventDefault();
+
+  const name=document.getElementById("visitorName").value.trim();
+
+  document.getElementById("formResult").textContent=
+    "Thank you, "+name+"! Your feedback was received in this demo.";
+
+  this.reset();
+});
+</script>
+
+</body>
+</html>
