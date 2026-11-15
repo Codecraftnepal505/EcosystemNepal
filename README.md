@@ -1,2 +1,0 @@
-# EcosystemNepal
-Environmental Awerness Website 
