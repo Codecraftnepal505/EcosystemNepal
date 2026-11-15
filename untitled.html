@@ -1,0 +1,787 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071b13">
+<title>EcoSystem Nepal | Protect Our Planet</title>
+
+<style>
+:root{
+  --bg:#f3f8f4;
+  --surface:#ffffff;
+  --surface2:#e5f1e8;
+  --text:#183c29;
+  --muted:#607768;
+  --green:#16834b;
+  --green2:#20b66a;
+  --border:#d5e5d9;
+  --shadow:0 10px 30px rgba(0,0,0,.07);
+}
+
+body.dark{
+  --bg:#07140e;
+  --surface:#102219;
+  --surface2:#183526;
+  --text:#e9f8ee;
+  --muted:#a6c2af;
+  --green:#43d889;
+  --green2:#70e6a5;
+  --border:#294a35;
+  --shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+  transition:background .3s,color .3s;
+}
+
+a{text-decoration:none;color:inherit;}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:var(--surface);
+  border-bottom:1px solid var(--border);
+  padding:14px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:bold;
+  color:var(--green);
+}
+
+nav{
+  display:flex;
+  gap:17px;
+  flex-wrap:wrap;
+}
+
+nav a{
+  font-size:14px;
+  font-weight:bold;
+  color:var(--text);
+}
+
+nav a:hover{color:var(--green);}
+
+.theme-btn{
+  background:var(--surface2);
+  color:var(--text);
+  border:1px solid var(--border);
+  padding:9px 13px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.hero{
+  min-height:570px;
+  padding:90px 8%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:
+  radial-gradient(circle at 20% 20%,#1d9b5b66,transparent 35%),
+  linear-gradient(135deg,#061b12,#104d2e,#071b13);
+  color:white;
+}
+
+.hero-tag{
+  color:#8ef2b5;
+  background:#ffffff16;
+  border:1px solid #ffffff30;
+  border-radius:30px;
+  padding:7px 16px;
+  margin-bottom:22px;
+  font-size:13px;
+}
+
+.hero h1{
+  font-size:clamp(38px,7vw,70px);
+  line-height:1.15;
+  max-width:850px;
+  margin-bottom:22px;
+}
+
+.hero h1 span{color:#62e69a;}
+
+.hero p{
+  max-width:690px;
+  color:#d0e8d8;
+  font-size:17px;
+  margin-bottom:30px;
+}
+
+.primary-btn{
+  display:inline-block;
+  background:#20b66a;
+  color:#061b12;
+  padding:13px 24px;
+  border-radius:8px;
+  font-weight:bold;
+  border:none;
+  cursor:pointer;
+}
+
+.primary-btn:hover{background:#70e6a5;}
+
+section{padding:75px 8%;scroll-margin-top:85px;}
+
+.section-heading{
+  text-align:center;
+  margin-bottom:38px;
+}
+
+.section-heading small{
+  color:var(--green);
+  font-weight:bold;
+  text-transform:uppercase;
+  letter-spacing:2px;
+}
+
+.section-heading h2{
+  font-size:clamp(27px,4vw,38px);
+  margin:8px 0;
+}
+
+.section-heading p{
+  color:var(--muted);
+  max-width:650px;
+  margin:auto;
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:35px;
+  align-items:center;
+}
+
+.about-visual{
+  min-height:300px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#0d5b35,#20b66a);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:100px;
+  box-shadow:var(--shadow);
+}
+
+.about-text h3{
+  font-size:26px;
+  margin-bottom:15px;
+}
+
+.about-text p{color:var(--muted);margin-bottom:15px;}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:25px;
+}
+
+.stat{
+  background:var(--surface2);
+  padding:15px;
+  border-radius:10px;
+  text-align:center;
+}
+
+.stat strong{
+  display:block;
+  color:var(--green);
+  font-size:23px;
+}
+
+.stat span{font-size:12px;color:var(--muted);}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:25px;
+  box-shadow:var(--shadow);
+  transition:transform .2s;
+}
+
+.card:hover{transform:translateY(-5px);}
+
+.card-icon{font-size:40px;margin-bottom:12px;}
+
+.card h3{color:var(--green);margin-bottom:9px;}
+
+.card p{color:var(--muted);font-size:14px;}
+
+.tips{
+  background:var(--surface2);
+}
+
+.tip-list{
+  max-width:800px;
+  margin:auto;
+}
+
+.tip{
+  display:flex;
+  gap:17px;
+  padding:18px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  margin-bottom:13px;
+}
+
+.tip-icon{font-size:27px;}
+
+.tip p{color:var(--muted);font-size:14px;}
+
+.quiz-box,.feedback-box{
+  max-width:650px;
+  margin:auto;
+  background:var(--surface);
+  padding:28px;
+  border:1px solid var(--border);
+  border-radius:15px;
+  box-shadow:var(--shadow);
+}
+
+.progress{
+  height:7px;
+  background:var(--surface2);
+  border-radius:10px;
+  margin:15px 0 25px;
+  overflow:hidden;
+}
+
+.progress-bar{
+  height:100%;
+  width:0;
+  background:var(--green);
+  transition:width .3s;
+}
+
+#question{margin-bottom:18px;}
+
+.option{
+  display:block;
+  width:100%;
+  text-align:left;
+  padding:13px;
+  margin:10px 0;
+  background:var(--surface2);
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.option:hover{border-color:var(--green);}
+
+.option.selected{
+  border:2px solid var(--green);
+  background:var(--surface2);
+}
+
+.option:disabled{cursor:default;}
+
+.quiz-actions{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-top:20px;
+}
+
+.result{
+  color:var(--green);
+  font-weight:bold;
+  margin-top:17px;
+}
+
+label{font-weight:bold;font-size:14px;}
+
+input,textarea{
+  width:100%;
+  padding:13px;
+  margin:8px 0 17px;
+  background:var(--bg);
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:8px;
+  font:inherit;
+}
+
+textarea{min-height:120px;resize:vertical;}
+
+footer{
+  background:#061b12;
+  color:#e4f4e9;
+  text-align:center;
+  padding:35px 7%;
+}
+
+footer strong{color:#62e69a;font-size:21px;}
+
+footer p{font-size:13px;color:#b8d4c1;margin-top:7px;}
+
+@media(max-width:750px){
+  header{justify-content:center;}
+  nav{justify-content:center;}
+  .about-grid{grid-template-columns:1fr;}
+  section{padding:55px 6%;}
+  .hero{min-height:490px;padding:65px 6%;}
+}
+
+@media(max-width:430px){
+  nav{gap:10px;}
+  nav a{font-size:12px;}
+  .stats{grid-template-columns:1fr;}
+  .quiz-box,.feedback-box{padding:19px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="#home" class="logo">🌿 EcoSystem Nepal</a>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#ecosystems">Nature</a>
+    <a href="#tips">Tips</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#feedback">Feedback</a>
+  </nav>
+
+  <button class="theme-btn" id="themeButton" onclick="toggleTheme()">
+    🌙 Dark
+  </button>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="hero-tag">🌍 A GREENER FUTURE STARTS TODAY</div>
+
+  <h1>Protect Nature.<br><span>Protect Our Future.</span></h1>
+
+  <p>
+    Discover the beauty of Nepal's environment, learn about
+    biodiversity and explore simple ways to protect our planet.
+    Every small action can make a difference.
+  </p>
+
+  <a class="primary-btn" href="#about">Explore EcoSystem Nepal →</a>
+</section>
+
+<section id="about">
+  <div class="section-heading">
+    <small>Who We Are</small>
+    <h2>About EcoSystem Nepal</h2>
+    <p>Understanding nature is the first step towards protecting it.</p>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-visual">🌳🏔️🌿</div>
+
+    <div class="about-text">
+      <h3>Nature is our greatest treasure.</h3>
+
+      <p>
+        An ecosystem is a community of living organisms interacting
+        with one another and with their non-living surroundings.
+      </p>
+
+      <p>
+        Nepal is rich in natural resources, forests, rivers,
+        mountains and wildlife. These ecosystems support life
+        and help maintain environmental balance.
+      </p>
+
+      <p>
+        EcoSystem Nepal aims to spread environmental awareness
+        and encourage everyone to take responsibility for nature.
+      </p>
+
+      <div class="stats">
+        <div class="stat">
+          <strong>🌱</strong>
+          <span>Grow Green</span>
+        </div>
+        <div class="stat">
+          <strong>💧</strong>
+          <span>Save Water</span>
+        </div>
+        <div class="stat">
+          <strong>♻️</strong>
+          <span>Reduce Waste</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ecosystems">
+  <div class="section-heading">
+    <small>Discover Nature</small>
+    <h2>Nepal's Natural Ecosystems</h2>
+    <p>Explore some of the important parts of Nepal's environment.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🌲</div>
+      <h3>Forests</h3>
+      <p>
+        Forests provide habitats for wildlife, absorb carbon dioxide,
+        protect soil and support biodiversity.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🏔️</div>
+      <h3>Mountains</h3>
+      <p>
+        Nepal's mountains are important natural landscapes and
+        sources of freshwater for many communities.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🌊</div>
+      <h3>Rivers and Lakes</h3>
+      <p>
+        Water ecosystems support aquatic organisms and provide
+        water for people, farming and other activities.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🐅</div>
+      <h3>Wildlife</h3>
+      <p>
+        Nepal is home to diverse wildlife, including Bengal tigers,
+        one-horned rhinoceroses and red pandas.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🌾</div>
+      <h3>Grasslands</h3>
+      <p>
+        Grasslands provide food and shelter for many animals
+        and are important parts of natural ecosystems.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🦋</div>
+      <h3>Biodiversity</h3>
+      <p>
+        Biodiversity means the variety of living organisms,
+        including plants, animals and microorganisms.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="tips" id="tips">
+  <div class="section-heading">
+    <small>Take Action</small>
+    <h2>How Can We Protect Nature?</h2>
+    <p>Simple habits can help make our environment cleaner and healthier.</p>
+  </div>
+
+  <div class="tip-list">
+    <div class="tip">
+      <div class="tip-icon">🌳</div>
+      <div>
+        <h3>Plant and Protect Trees</h3>
+        <p>Plant trees and protect existing forests and green spaces.</p>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">♻️</div>
+      <div>
+        <h3>Reduce, Reuse and Recycle</h3>
+        <p>Use fewer disposable products and separate recyclable waste.</p>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">🚰</div>
+      <div>
+        <h3>Save Water</h3>
+        <p>Avoid wasting clean water and keep water sources free from pollution.</p>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">🐾</div>
+      <div>
+        <h3>Protect Wildlife</h3>
+        <p>Respect wild animals and help protect their natural habitats.</p>
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-icon">🧹</div>
+      <div>
+        <h3>Keep Surroundings Clean</h3>
+        <p>Use proper waste bins and take part in community clean-up activities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="section-heading">
+    <small>Test Your Knowledge</small>
+    <h2>Environmental Quiz</h2>
+    <p>Answer these questions and see how much you know about nature.</p>
+  </div>
+
+  <div class="quiz-box">
+    <p id="questionNumber">Question 1 of 5</p>
+
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <h3 id="question"></h3>
+    <div id="options"></div>
+
+    <div class="quiz-actions">
+      <span id="scoreText">Score: 0</span>
+      <button class="primary-btn" id="nextButton" onclick="nextQuestion()">
+        Next →
+      </button>
+    </div>
+
+    <p class="result" id="quizResult"></p>
+  </div>
+</section>
+
+<section id="feedback">
+  <div class="section-heading">
+    <small>Your Opinion Matters</small>
+    <h2>Share Your Feedback</h2>
+    <p>Tell us what you think about EcoSystem Nepal.</p>
+  </div>
+
+  <div class="feedback-box">
+    <form id="feedbackForm">
+      <label for="name">Your Name</label>
+      <input id="name" type="text" placeholder="Enter your name" required>
+
+      <label for="email">Your Email (optional)</label>
+      <input id="email" type="email" placeholder="Enter your email">
+
+      <label for="message">Your Message</label>
+      <textarea id="message" placeholder="Write your feedback..." required></textarea>
+
+      <button class="primary-btn" type="submit">Submit Feedback →</button>
+    </form>
+
+    <p class="result" id="formResult"></p>
+
+    <p style="font-size:12px;color:var(--muted);margin-top:12px;">
+      Demonstration only: this form does not send or permanently store messages.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <strong>🌿 EcoSystem Nepal</strong>
+  <p>Protect Nature. Protect Our Future.</p>
+  <p>Learn • Care • Protect • Preserve</p>
+  <p>© 2026 EcoSystem Nepal. All rights reserved.</p>
+</footer>
+
+<script>
+/* DARK AND LIGHT THEME */
+
+function toggleTheme(){
+  document.body.classList.toggle("dark");
+
+  const dark = document.body.classList.contains("dark");
+  const button = document.getElementById("themeButton");
+
+  button.textContent = dark ? "☀️ Light" : "🌙 Dark";
+}
+
+/* QUIZ */
+
+const questions = [
+  {
+    question:"Which gas do plants absorb during photosynthesis?",
+    options:["Oxygen","Carbon dioxide","Hydrogen","Nitrogen"],
+    answer:1
+  },
+  {
+    question:"Which action helps reduce environmental pollution?",
+    options:["Burning plastic","Throwing waste in rivers","Recycling waste","Cutting forests"],
+    answer:2
+  },
+  {
+    question:"Which animal is native to Nepal?",
+    options:["Red panda","Polar bear","Kangaroo","Penguin"],
+    answer:0
+  },
+  {
+    question:"What is biodiversity?",
+    options:[
+      "Only different types of trees",
+      "Variety of living organisms",
+      "Only water resources",
+      "A type of pollution"
+    ],
+    answer:1
+  },
+  {
+    question:"Which of these is a renewable energy source?",
+    options:["Coal","Petrol","Solar energy","Diesel"],
+    answer:2
+  }
+];
+
+let current=0;
+let score=0;
+let selected=null;
+let finished=false;
+
+function showQuestion(){
+  const q=questions[current];
+
+  document.getElementById("questionNumber").textContent=
+    "Question "+(current+1)+" of "+questions.length;
+
+  document.getElementById("question").textContent=q.question;
+
+  document.getElementById("progressBar").style.width=
+    ((current+1)/questions.length*100)+"%";
+
+  document.getElementById("scoreText").textContent="Score: "+score;
+  document.getElementById("quizResult").textContent="";
+  document.getElementById("nextButton").textContent="Next →";
+
+  selected=null;
+
+  const options=document.getElementById("options");
+  options.innerHTML="";
+
+  q.options.forEach((option,index)=>{
+    const button=document.createElement("button");
+
+    button.className="option";
+    button.textContent=option;
+
+    button.onclick=()=>{
+      if(selected!==null || finished)return;
+
+      selected=index;
+
+      document.querySelectorAll(".option").forEach(b=>{
+        b.classList.remove("selected");
+      });
+
+      button.classList.add("selected");
+    };
+
+    options.appendChild(button);
+  });
+}
+
+function nextQuestion(){
+  if(finished){
+    current=0;
+    score=0;
+    finished=false;
+    showQuestion();
+    return;
+  }
+
+  if(selected===null){
+    document.getElementById("quizResult").textContent=
+      "Please select an answer first.";
+    return;
+  }
+
+  if(selected===questions[current].answer){
+    score++;
+  }
+
+  current++;
+
+  if(current<questions.length){
+    showQuestion();
+  }else{
+    finished=true;
+
+    document.getElementById("question").textContent="Quiz Completed! 🎉";
+    document.getElementById("options").innerHTML="";
+    document.getElementById("questionNumber").textContent="Final Result";
+    document.getElementById("scoreText").textContent=
+      "Score: "+score+"/"+questions.length;
+
+    document.getElementById("quizResult").textContent=
+      score===questions.length
+      ?"Excellent! You got every answer correct! 🌟"
+      :"Well done! You scored "+score+" out of "+questions.length+".";
+
+    document.getElementById("nextButton").textContent="Try Again ↻";
+  }
+}
+
+showQuestion();
+
+/* FEEDBACK DEMO FORM */
+
+document.getElementById("feedbackForm").addEventListener("submit",function(event){
+  event.preventDefault();
+
+  const name=document.getElementById("name").value.trim();
+
+  document.getElementById("formResult").textContent=
+    "Thank you, "+name+"! Your feedback was received in this demo.";
+
+  this.reset();
+});
+</script>
+
+</body>
+</html>
